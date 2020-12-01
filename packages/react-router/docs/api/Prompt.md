@@ -3,8 +3,6 @@
 Used to prompt the user before navigating away from a page. When your application enters a state that should prevent the user from navigating away (like a form is half-filled out), render a `<Prompt>`.
 
 ```jsx
-import { Prompt } from 'react-router'
-
 <Prompt
   when={formIsHalfFilledOut}
   message="Are you sure you want to leave?"
@@ -25,11 +23,15 @@ Will be called with the next `location` and `action` the user is attempting to n
 
 ```jsx
 <Prompt
-  message={location =>
-    location.pathname.startsWith("/app")
+  message={(location, action) => {
+    if (action === 'POP') {
+      console.log("Backing up...")
+    }
+
+    return location.pathname.startsWith("/app")
       ? true
       : `Are you sure you want to go to ${location.pathname}?`
-  }
+  }}
 />
 ```
 

@@ -22,7 +22,7 @@ The following terms are also used:
 - `go(n)` - (function) Moves the pointer in the history stack by `n` entries
 - `goBack()` - (function) Equivalent to `go(-1)`
 - `goForward()` - (function) Equivalent to `go(1)`
-- `block(prompt)` - (function) Prevents navigation (see [the history docs](https://github.com/ReactTraining/history#blocking-transitions))
+- `block(prompt)` - (function) Prevents navigation (see [the history docs](https://github.com/ReactTraining/history/blob/master/docs/blocking-transitions.md))
 
 ## history is mutable
 
@@ -32,7 +32,8 @@ The history object is mutable. Therefore it is recommended to access the [`locat
 class Comp extends React.Component {
   componentDidUpdate(prevProps) {
     // will be true
-    const locationChanged = this.props.location !== prevProps.location;
+    const locationChanged =
+      this.props.location !== prevProps.location;
 
     // INCORRECT, will *always* be false because history is mutable.
     const locationChanged =
@@ -43,4 +44,4 @@ class Comp extends React.Component {
 <Route component={Comp} />;
 ```
 
-Additional properties may also be present depending on the implementation you're using. Please refer to [the history documentation](https://github.com/ReactTraining/history#properties) for more details.
+Additional properties may also be present depending on the implementation you're using. Please refer to [the history documentation](https://github.com/ReactTraining/history/tree/master/docs) for more details.

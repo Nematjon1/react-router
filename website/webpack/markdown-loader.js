@@ -85,7 +85,10 @@ const correctLinks = ($, moduleSlug, environment, type, basename) => {
     if (isSelfHeader(href)) {
       // #render-func
       // /web/api/Route/render-func
-      $e.attr("href", `${basename}/${environment}/${type}/${moduleSlug}/${hash}`);
+      $e.attr(
+        "href",
+        `${basename}/${environment}/${type}/${moduleSlug}/${hash}`
+      );
       $e.addClass(routerDelegationClassName);
     } else if (isSibling(href)) {
       // ./quick-start.md
@@ -147,12 +150,24 @@ const md = markdownIt({
 module.exports = function(content) {
   this.cacheable();
   const options = loaderUtils.getOptions(this);
-  const basename = options.basename || "";
+  const basename = (options && options.basename) || "";
   const markup = md.render(content);
   const $markup = cheerio.load(markup);
   const title = extractHeaders($markup, "h1", this.data.type)[0];
-  correctLinks($markup, title.slug, this.data.environment, this.data.type, basename);
-  makeHeaderLinks($markup, title.slug, this.data.environment, this.data.type, basename);
+  correctLinks(
+    $markup,
+    title.slug,
+    this.data.environment,
+    this.data.type,
+    basename
+  );
+  makeHeaderLinks(
+    $markup,
+    title.slug,
+    this.data.environment,
+    this.data.type,
+    basename
+  );
   const headers = extractHeaders($markup, "h2", this.data.type);
   const value = {
     markup: $markup.html(),

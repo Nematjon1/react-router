@@ -26,14 +26,16 @@ function compilePath(path, options) {
  * Public API for matching a URL pathname to a path.
  */
 function matchPath(pathname, options = {}) {
-  if (typeof options === "string") options = { path: options };
+  if (typeof options === "string" || Array.isArray(options)) {
+    options = { path: options };
+  }
 
   const { path, exact = false, strict = false, sensitive = false } = options;
 
   const paths = [].concat(path);
 
   return paths.reduce((matched, path) => {
-    if (!path) return null;
+    if (!path && path !== "") return null;
     if (matched) return matched;
 
     const { regexp, keys } = compilePath(path, {

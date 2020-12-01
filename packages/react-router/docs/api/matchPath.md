@@ -20,7 +20,8 @@ this on the server with Node.js, it would be `req.path`.
 ## props
 
 The second argument are the props to match against, they are identical
-to the matching props `Route` accepts:
+to the matching props `Route` accepts. It could also be a string or
+an array of strings as shortcut for `{ path }`:
 
 ```js
 {
@@ -32,15 +33,15 @@ to the matching props `Route` accepts:
 
 ## returns
 
-It returns an object when provided pathname does match `path` prop or `null` otherwise.
+It returns an object when provided pathname does match `path` prop.
 
-```
+```js
 matchPath("/users/2", {
-      path: "/users/:id",
-      exact: true,
-      strict: true
-    })
-    
+  path: "/users/:id",
+  exact: true,
+  strict: true
+});
+
 //  {
 //    isExact: true
 //    params: {
@@ -48,15 +49,17 @@ matchPath("/users/2", {
 //    }
 //    path: "/users/:id"
 //    url: "/users/2"
-//  } 
+//  }
 ```
 
-```
+It returns `null` when provided pathname does not match `path` prop.
+
+```js
 matchPath("/users", {
-      path: "/users/:id",
-      exact: true,
-      strict: true
-    })
-    
+  path: "/users/:id",
+  exact: true,
+  strict: true
+});
+
 //  null
 ```

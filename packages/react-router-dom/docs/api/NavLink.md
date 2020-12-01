@@ -3,8 +3,6 @@
 A special version of the [`<Link>`](Link.md) that will add styling attributes to the rendered element when it matches the current URL.
 
 ```jsx
-import { NavLink } from 'react-router-dom'
-
 <NavLink to="/about">About</NavLink>
 ```
 
@@ -59,19 +57,20 @@ When `true`, the trailing slash on a location's `pathname` will be taken into co
 A function to add extra logic for determining whether the link is active. This should be used if you want to do more than verify that the link's pathname matches the current URL's `pathname`.
 
 ```jsx
-// only consider an event active if its event id is an odd number
-const oddEvent = (match, location) => {
-  if (!match) {
-    return false
-  }
-  const eventID = parseInt(match.params.eventID)
-  return !isNaN(eventID) && eventID % 2 === 1
-}
-
 <NavLink
   to="/events/123"
-  isActive={oddEvent}
->Event 123</NavLink>
+  isActive={(match, location) => {
+    if (!match) {
+      return false;
+    }
+
+    // only consider an event active if its event id is an odd number
+    const eventID = parseInt(match.params.eventID);
+    return !isNaN(eventID) && eventID % 2 === 1;
+  }}
+>
+  Event 123
+</NavLink>
 ```
 
 ## location: object
@@ -89,6 +88,7 @@ The value of the `aria-current` attribute used on an active link. Available valu
 - `"date"` - used to indicate the current date within a calendar
 - `"time"` - used to indicate the current time within a timetable
 - `"true"` - used to indicate if the NavLink is active
+- `"false"` - used to prevent assistive technologies from reacting to a current link (a use case would be to prevent multiple aria-current tags on a single page)
 
 Defaults to `"page"`.
 

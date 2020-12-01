@@ -13,9 +13,9 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/react-router"><img src="https://img.shields.io/npm/v/react-router.svg?style=flat-square"></a>
-  <a href="https://www.npmjs.com/package/react-router"><img src="https://img.shields.io/npm/dm/react-router.svg?style=flat-square"></a>
-  <a href="https://travis-ci.org/ReactTraining/react-router"><img src="https://img.shields.io/travis/ReactTraining/react-router/master.svg?style=flat-square"></a>
+  <a href="https://www.npmjs.com/package/react-router"><img src="https://img.shields.io/npm/v/react-router?style=flat-square"></a>
+  <a href="https://www.npmjs.com/package/react-router"><img src="https://img.shields.io/npm/dm/react-router?style=flat-square"></a>
+  <a href="https://travis-ci.com/ReactTraining/react-router"><img src="https://img.shields.io/travis/com/ReactTraining/react-router/master?style=flat-square"></a>
 </p>
 
 ## Docs
@@ -39,13 +39,17 @@ This repository is a monorepo that we manage using [Lerna](https://github.com/le
 | [`react-router-native`](/packages/react-router-native) | [![npm](https://img.shields.io/npm/v/react-router-native.svg?style=flat-square)](https://www.npmjs.com/package/react-router-native) | [![](https://img.shields.io/badge/API%20Docs-site-green.svg?style=flat-square)](https://reacttraining.com/react-router/native/guides/quick-start) [![](https://img.shields.io/badge/API%20Docs-markdown-lightgrey.svg?style=flat-square)](/packages/react-router-native/docs) | [React Native](https://facebook.github.io/react-native/) bindings for React Router |
 | [`react-router-config`](/packages/react-router-config) | [![npm](https://img.shields.io/npm/v/react-router-config.svg?style=flat-square)](https://www.npmjs.com/package/react-router-config) | [![](https://img.shields.io/badge/API%20Docs-readme-orange.svg?style=flat-square)](/packages/react-router-config/#readme)                                                                                                                                                     | Static route config helpers                                                        |
 
-> **Redux users:** The [`react-router-redux` package](https://github.com/ReactTraining/react-router/tree/5345a820818c8d43ac923558670538a479ac2234/packages/react-router-redux) is now deprecated. See [Redux Integration](https://reacttraining.com/react-router/web/guides/redux-integration) for a better approach.
+> **Redux users:** The [`react-router-redux` package](https://github.com/ReactTraining/react-router/tree/5345a820818c8d43ac923558670538a479ac2234/packages/react-router-redux) is now deprecated. See [Redux Integration](https://reactrouter.com/web/guides/deep-redux-integration) for a better approach.
 
 ## Changes
 
 Detailed release notes for a given version can be found [on our releases page](https://github.com/ReactTraining/react-router/releases).
 
 For change notes prior to version 4, please see [the CHANGES.md file](https://github.com/ReactTraining/react-router/blob/8365d4b2e91084265a1da7de911766169fb9e96e/CHANGES.md).
+
+## Funding
+
+You may provide financial support for this project by donating [via Open Collective](https://opencollective.com/react-router), attending [one of our workshops](https://reacttraining.com/workshops/), or purchasing [one of our online courses](https://reacttraining.com/courses/). Thank you for your support!
 
 ## About
 

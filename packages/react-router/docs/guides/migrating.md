@@ -4,7 +4,7 @@ React Router v4 is a complete rewrite, so there is not a simple migration path. 
 
 **Note:** This migration guide is for both React Router v2 and v3, but for brevity, references to previous versions will only mention v3.
 
-**For react-router-redux users:** This library [has been deprecated](/packages/react-router-redux/README.md#project-deprecated). It is recommended that you separate out Redux and React Router, as their state semantics don't match up exactly. But if you wish to attempt to keep them in sync, you can use a library such as [connected-react-router](https://github.com/supasate/connected-react-router).
+**For react-router-redux users:** This library [has been deprecated](https://github.com/ReactTraining/react-router/tree/bca95ce2a4f1cdc88e29df8c1553e132ba6ebc4a/packages/react-router-redux#project-deprecated). It is recommended that you separate out Redux and React Router, as their state semantics don't match up exactly. But if you wish to attempt to keep them in sync, you can use a library such as [connected-react-router](https://github.com/supasate/connected-react-router).
 
 - [The Router](#the-router)
 - [Routes](#routes)
@@ -224,7 +224,9 @@ In v3, you could use PatternUtils.formatPattern to generate a valid path from a 
 // v3
 const THING_PATH = "/thing/:id";
 
-<Link to={PatternUtils.formatPattern(THING_PATH, { id: 1 })}>A thing</Link>;
+<Link to={PatternUtils.formatPattern(THING_PATH, { id: 1 })}>
+  A thing
+</Link>;
 ```
 
 In v4, you can achieve the same functionality using the [`compile`](https://github.com/pillarjs/path-to-regexp/tree/v1.7.0#compile-reverse-path-to-regexp) function in [`path-to-regexp@^1.7.0`](https://github.com/pillarjs/path-to-regexp/tree/v1.7.0).
@@ -258,18 +260,14 @@ In v4, you should always provide `to`. In case you are rely on empty `to` you ca
 
 ```jsx
 // v4
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-const LinkWrapper = (props) => {
-  const Component = props.to ? Link : 'a'
-  return (
-    <Component {...props}>
-      { props.children }
-    </Component>
-  )
-}
+const LinkWrapper = props => {
+  const Component = props.to ? Link : "a";
+  return <Component {...props}>{props.children}</Component>;
+};
 
 <LinkWrapper to={disabled ? null : `/item/${id}`} className="item">
   // item content
-</LinkWrapper>
+</LinkWrapper>;
 ```
